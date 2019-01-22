@@ -18,11 +18,7 @@ export default class IndexPage extends React.Component {
             </div>
             {posts
               .map(({ node: post }) => (
-                <div
-                  className="content"
-                  
-                  key={post.id}
-                >
+                <div key={post.id}>
                 <h1>{post.frontmatter.rubrik1}</h1>
                 <h1>{post.frontmatter.service1}</h1>
                 
