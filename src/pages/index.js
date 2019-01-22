@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import Img from 'gatsby-image'
 
 export default class IndexPage extends React.Component {
   render() {
@@ -19,24 +20,21 @@ export default class IndexPage extends React.Component {
               .map(({ node: post }) => (
                 <div
                   className="content"
-                  style={{ border: '1px solid #333', padding: '2em 4em' }}
+                  
                   key={post.id}
                 >
-                  <p>
-                    <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                    {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
-                  </p>
+                <h1>{post.frontmatter.rubrik1}</h1>
+                <h1>{post.frontmatter.service1}</h1>
+                
+                <h1>{post.frontmatter.rubrik2}</h1>
+                <h1>{post.frontmatter.rubrik3}</h1>
+             <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
+
+                <div
+                      className="post_content "
+                      dangerouslySetInnerHTML={{ __html: post.frontmatter.html }}
+                    />
+
                 </div>
               ))}
           </div>
@@ -57,7 +55,6 @@ IndexPage.propTypes = {
 export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
     ) {
       edges {
@@ -67,10 +64,25 @@ export const pageQuery = graphql`
           fields {
             slug
           }
+          html
           frontmatter {
             title
+            image {
+              childImageSharp {
+                resize(width: 1280, height: 700) {
+                  src
+                }
+                fluid(maxWidth: 1280) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          
+            rubrik1
+            service1
+            rubrik2
+            rubrik3
             templateKey
-            date(formatString: "MMMM DD, YYYY")
           }
         }
       }
