@@ -5,31 +5,34 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog/index.md"
-    create: false
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "blog-post",
-        }
-      - { label: "Titel", name: "title", widget: "string" }
-      - { label: Bild, name: image, widget: image }
-      - { label: "Rubrik till tjänst1", name: "rubrik1", widget: "string" }
-      - { label: "Tjänst 1", name: "service1", widget: "text" }
-      - { label: "Rubrik till tjänst 2", name: "rubrik2", widget: "string" }
-      - { label: "Tjänst 2", name: "service2", widget: "text" }
-      - { label: "Rubrik till tjänst 3", name: "rubrik3", widget: "string" }
-      - { label: "Tjänst 3", name: "service3", widget: "text" }
-      - { label: "Profil namn", name: "profil-namn", widget: "text" }
-      - { label: Profil bild, name: profile-pic, widget: image }
-      - { label: "Profile text", name: "profile-text", widget: "text" }
-      - { label: "Profil länk", name: "profile-link", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "pages"
+    label: "Pages"
+    files:
+    - file: "src/pages/blog/index.md"
+      label: "Blog"
+      name: "blog"
+      create: false
+      slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+      fields:
+        - {
+            label: "Template Key",
+            name: "templateKey",
+            widget: "hidden",
+            default: "blog-post",
+          }
+        - { label: "Titel", name: "title", widget: "string" }
+        - { label: Bild, name: image, widget: image }
+        - { label: "Rubrik till tjänst1", name: "rubrik1", widget: "string" }
+        - { label: "Tjänst 1", name: "service1", widget: "text" }
+        - { label: "Rubrik till tjänst 2", name: "rubrik2", widget: "string" }
+        - { label: "Tjänst 2", name: "service2", widget: "text" }
+        - { label: "Rubrik till tjänst 3", name: "rubrik3", widget: "string" }
+        - { label: "Tjänst 3", name: "service3", widget: "text" }
+        - { label: "Profil namn", name: "profil-namn", widget: "text" }
+        - { label: Profil bild, name: profile-pic, widget: image }
+        - { label: "Profile text", name: "profile-text", widget: "text" }
+        - { label: "Profil länk", name: "profile-link", widget: "text" }
+        - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "pages"
     label: "Pages"

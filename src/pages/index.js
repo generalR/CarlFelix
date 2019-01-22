@@ -20,10 +20,14 @@ export default class IndexPage extends React.Component {
               .map(({ node: post }) => (
                 <div key={post.id}>
                 <h1>{post.frontmatter.rubrik1}</h1>
-                <h1>{post.frontmatter.service1}</h1>
-                
+                <p>{post.frontmatter.service1}</p>
+
                 <h1>{post.frontmatter.rubrik2}</h1>
+                <p>{post.frontmatter.service2}</p>
+                
                 <h1>{post.frontmatter.rubrik3}</h1>
+                <p>{post.frontmatter.service3}</p>
+                
              <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
 
                 <div
@@ -77,7 +81,9 @@ export const pageQuery = graphql`
             rubrik1
             service1
             rubrik2
+            service2
             rubrik3
+            service3
             templateKey
           }
         }
